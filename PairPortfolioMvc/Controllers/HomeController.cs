@@ -82,71 +82,67 @@ namespace PairPortfolioMvc.Controllers
                 },
                 new MemberProfile
                 {
-                    Slug = "partner",
-                    Name = "Partner Name",
-                    Role = "Developer",
-                    Bio = "Partner bio placeholder — ready to be updated via Pull Request.",
-                    Summary = "Welcome to your partner's personal portfolio page—ready for them to customize on their own branch.",
-                    Skills = new List<string> { "C#", "SQL", "JavaScript" },
-                    Education = new List<EducationItem>
-                    {
-                        new EducationItem
-                        {
+                    Slug = "lean",
+                    Name = "Lean",
+                    Role = "Passionate Artist | Aspiring UI/UX Designer",
+                    Bio = "Architect for creating visually appealing and user-friendly interfaces.",
+                    Summary = "Welcome to Lean's personal portfolio, where art meets technology and creativity that turns imagination into reality.",
+                    Skills = new List<string> { "Java", "C", "Figma", "Adobe Photoshop", "Adobe Illustrator" },
+                    Education = new List<EducationItem> {
+                        new EducationItem {
                             Level = "College (Current Student)",
-                            School = "Partner's University Name",
-                            ProgramOrTrack = "Degree Program",
+                            School = "Polytechnic University of the Philippines (PUP) — Sta. Mesa, Manila",
+                            ProgramOrTrack = "Bachelor of Science in Computer Science (BSCS)",
                             Period = "Present"
                         },
-                        new EducationItem
-                        {
+                        new EducationItem {
                             Level = "Senior High School",
-                            School = "Partner's Senior High School",
-                            ProgramOrTrack = "Track / Strand",
-                            Period = "Graduated"
+                            School = "Quirino High School",
+                            ProgramOrTrack = "Academic Track / Science, Technology, Engineering, and Mathematics (STEM)",
+                            Period = "Graduated (School year: 2023 - 2025)"
                         },
-                        new EducationItem
-                        {
+                        new EducationItem {
                             Level = "Junior High School",
-                            School = "Partner's Junior High School",
+                            School = "Quirino High School",
                             ProgramOrTrack = "Secondary Education",
-                            Period = "Completed"
+                            Period = "Completed (School year: 2019-2023)"
                         }
                     },
-                    Contacts = new List<SocialLink>
-                    {
-                        new SocialLink
-                        {
+                    Contacts = new List<SocialLink> {
+                        new SocialLink {
                             Platform = "GitHub",
-                            DisplayText = "github.com/partner-username",
-                            Url = "https://github.com"
+                            DisplayText = "github.com/ainoselemae-lab",
+                            Url = "https://github.com/ainoselemae-lab"
                         },
-                        new SocialLink
-                        {
+                        new SocialLink {
                             Platform = "Email",
-                            DisplayText = "partner.email@example.com",
-                            Url = "mailto:partner.email@example.com"
+                            DisplayText = "ainoelemae@gmail.com",
+                            Url = "mailto:ainoelemae@gmail.com"
                         },
-                        new SocialLink
-                        {
+                        new SocialLink {
                             Platform = "LinkedIn",
-                            DisplayText = "LinkedIn Profile",
-                            Url = "https://linkedin.com"
+                            DisplayText = "Lean Marie Ainos Dumlao",
+                            Url = "https://www.linkedin.com/in/lean-marie-ainos-dumlao-7152013a6/"
                         }
                     },
-                    PersonalProjects = new List<ProjectItem>
-                    {
-                        new ProjectItem
-                        {
-                            Title = "Partner Showcase Project",
-                            Description = "Add your own project details here via a Pull Request.",
+                    PersonalProjects = new List<ProjectItem> {
+                        new ProjectItem {
+                            Title = "Pair Portfolio Web App",
+                            Description = "Built the MVC structure, view cards, and Git workflow baseline.",
                             TechStack = "C#, ASP.NET Core MVC",
-                            Owner = "Partner Name"
+                            Owner = "Lean & Ares"
+                        },
+                        new ProjectItem {
+                            Title = "Inquiries, Investigations, and Immersion: PhysX Prototype",
+                            Description = "Gamified learning application developed, designed to motivate student to " +
+                            "learn and understand physics concepts through an engaging and interactive experience.",
+                            TechStack = "C#, uGUI, Adobe Illustrator",
+                            Owner = "Team"
                         }
                     }
                 }
             };
         }
-
         public IActionResult Index()
         {
             var model = new PortfolioViewModel
@@ -158,7 +154,7 @@ namespace PairPortfolioMvc.Controllers
                     new ProjectItem
                     {
                         Title = "Pair Portfolio Web App",
-                        Description = "A collaborative ASP.NET Core MVC portfolio built using GitHub feature branches and Pull Requests.",
+                        Description = "Built the MVC structure, view cards, and Git workflow baseline",
                         TechStack = "C#, ASP.NET Core MVC, Bootstrap",
                         Owner = "Team"
                     }
@@ -176,7 +172,7 @@ namespace PairPortfolioMvc.Controllers
 
             if (member == null)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)) ;
             }
 
             return View(member);
