@@ -1,0 +1,72 @@
+﻿@model PairPortfolioMvc.Models.MemberProfile
+@{
+    ViewData["Title"] = $"{Model.Name} — Portfolio";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+            &larr; Back to Home
+        </a>
+    </div>
+
+    <!-- Header & Contact/Social Links -->
+    <div class="p-4 bg-light rounded-3 mb-4">
+        <h1 class="display-6 fw-bold mb-1">@Model.Name</h1>
+        <p class="text-primary fw-semibold mb-3">@Model.Role</p>
+        <p class="lead mb-2">@Model.Bio</p>
+        <p class="text-muted mb-3">@Model.Summary</p>
+
+        <div class="mb-3">
+            @foreach (var skill in Model.Skills)
+            {
+                <span class="badge bg-dark me-1">@skill</span>
+            }
+        </div>
+
+        <hr />
+        <h6 class="text-uppercase text-muted small fw-bold mb-2">Contact &amp; Social Links</h6>
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var contact in Model.Contacts)
+            {
+                <a href="@contact.Url" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                    <strong>@contact.Platform:</strong> @contact.DisplayText
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Educational Background -->
+    <h3 class="mb-3">Educational Background</h3>
+    <div class="list-group mb-5 shadow-sm">
+        @foreach (var edu in Model.Education)
+        {
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between align-items-center">
+                    <h5 class="mb-1">@edu.School</h5>
+                    <span class="badge bg-primary">@edu.Level</span>
+                </div>
+                <p class="mb-1">@edu.ProgramOrTrack</p>
+                <small class="text-muted">@edu.Period</small>
+            </div>
+        }
+    </div>
+
+    <!-- Personal Projects -->
+    <h3 class="mb-3">Personal Projects</h3>
+    <div class="row g-4">
+        @foreach (var project in Model.PersonalProjects)
+        {
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">@project.Title</h5>
+                        <p class="card-text">@project.Description</p>
+                        <p class="mb-1"><strong>Tech:</strong> @project.TechStack</p>
+                        <small class="text-muted">Owner: @project.Owner</small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

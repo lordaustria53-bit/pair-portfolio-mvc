@@ -1,8 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model PairPortfolioMvc.Models.PortfolioViewModel
+@{
+    ViewData["Title"] = "Our Portfolio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="container py-4">
+    <!-- Hero Section -->
+    <div class="text-center mb-5 p-4 bg-light rounded-3">
+        <h1 class="display-5 fw-bold">Ares &amp; Partner Portfolio</h1>
+        <p class="lead text-muted">@Model.TeamTagline</p>
+    </div>
+
+    <!-- Team Members Section -->
+    <h2 class="mb-3">About Us</h2>
+    <div class="row g-4 mb-5">
+        @foreach (var member in Model.Members)
+        {
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm position-relative">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a asp-controller="Home"
+                               asp-action="Profile"
+                               asp-route-id="@member.Slug"
+                               class="text-decoration-none stretched-link">
+                                @member.Name
+                            </a>
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-primary">@member.Role</h6>
+                        <p class="card-text">@member.Bio</p>
+                        <div>
+                            @foreach (var skill in member.Skills)
+                            {
+                                <span class="badge bg-secondary me-1">@skill</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
