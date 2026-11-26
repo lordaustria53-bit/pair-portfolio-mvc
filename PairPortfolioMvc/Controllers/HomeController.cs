@@ -147,7 +147,7 @@ namespace PairPortfolioMvc.Controllers
         {
             var model = new PortfolioViewModel
             {
-                TeamTagline = "Mata sa langit, paa sa lupa. Padayon, iskolar ng bayan!",
+                TeamTagline = "Iskolar ng Bayan Duo for Tomorrow's Innovation!",
                 Members = GetMembers(),
                 Projects = new List<ProjectItem>
                 {
